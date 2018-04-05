@@ -5,7 +5,8 @@ import './App.css';
 
 
 const api = new Frisbee({
-      baseURI: 'http://api.jakarta.go.id',
+    //  baseURI: 'http://api.jakarta.go.id',
+      baseURI: 'http://wahidganteng.ga/process/api/ca7a091d7a53bb8df780b1bb2d3450cb',
       headers: {
             'Accept': 'application/json',
                 'Content-Type': 'application/json',
@@ -18,13 +19,16 @@ makeRequests();
   
 
 async function makeRequests() {
-  try{
-    let res = await api.get('/v1/emergency/ambulance');
-        console.log('HASIL:', res.body.VEHICLE.DATA.length);
 
-      console.log(res.body.VEHICLE.DATA[i].GSM);
-   }
-        if (res.err) throw res.err
+  try{
+    let res = await api.get('/cek-resi');
+console.log('HASILNYA : ', res.body);
+this.setState({ isi: 'res.body.msg'});
+   // for(let i = 0; i < res.body.VEHICLE.DATA.length;i++){
+   //
+   //    console.log(res.body.VEHICLE.DATA[i].GSM);
+   // }
+   //      if (res.err) throw res.err
   } catch (err) {
     throw err;
   
@@ -32,10 +36,12 @@ async function makeRequests() {
   
   }
 class App extends Component {
-
-  state = {
-    isi: [],
-  };
+constructor(props){
+  super(props)
+  this.state = {
+    isi: ''
+  }
+}
   render() {
     return (
       <div className="App">
@@ -44,7 +50,7 @@ class App extends Component {
           <h1 className="App-title">Welcome to React</h1>
         </header>
         <p className="App-intro">
-        {this.state.res}
+        {this.state.isi}
         </p>
       </div>
     );
