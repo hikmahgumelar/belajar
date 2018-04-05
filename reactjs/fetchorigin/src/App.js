@@ -25,10 +25,12 @@ componentDidMount(){
   const ambildata = async () => {
 
      //const baseURI = 'http://wahidganteng.ga/process/api/ca7a091d7a53bb8df780b1bb2d3450cb/cek-resi';
-     const baseURI = 'http://api.jakarta.go.id/v1/emergency/ambulance';
+     const baseURI = 'http://api.jakarta.go.id/v1/emergency/petugasdinkes';
      const results = await fetch(baseURI, opsi)
      const hasil = await results.json();   
      console.log(hasil);
+    this.setState({pesan : hasil.Dinas})
+
   }
 ambildata();
 }
@@ -40,7 +42,7 @@ ambildata();
           <h1 className="App-title">Welcome to React</h1>
         </header>
         <p className="App-intro">
-          To get started, edit <code>src/App.js</code> and save to reload.
+        {this.state.pesan}
         </p>
       </div>
     );
