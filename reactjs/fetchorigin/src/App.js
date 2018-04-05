@@ -6,7 +6,7 @@ class App extends Component {
 constructor(){
 super()
 this.state = {
-  pesan: '',
+  pesan: [],
 }
 
 }
@@ -29,23 +29,32 @@ componentDidMount(){
      const results = await fetch(baseURI, opsi)
      const hasil = await results.json();   
      console.log(hasil);
-    this.setState({pesan : hasil.Dinas})
+    this.setState({pesan : hasil.data})
 
   }
 ambildata();
 }
   render() {
-    return (
+  
+      return (
       <div className="App">
         <header className="App-header">
           <img src={logo} className="App-logo" alt="logo" />
           <h1 className="App-title">Welcome to React</h1>
-        </header>
+          </header>
         <p className="App-intro">
-        {this.state.pesan}
-        </p>
-      </div>
-    );
+        {this.state.pesan.map(hasilnya => {
+        return ( 
+            <div>
+            {hasilnya.nama}
+            </div>
+            )
+                                         })
+        }
+        
+        </p>   
+       </div>
+      );
   }
 }
 
