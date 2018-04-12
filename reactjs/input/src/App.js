@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import logo from './logo.svg';
 import './App.css';
-import { TfImageRecognition } from 'react-native-tensorflow';
+import * as tf from '@tensorflow/tfjs';
 
 
 class App extends Component {
@@ -17,7 +17,7 @@ class App extends Component {
 
    async recognizeImage() {
    try {
-    const tfImageRecognition = new TfImageRecognition({
+    const tfImageRecognition = new tf({
       model: require('./assets/tensorflow_inception_graph.pb'),
       labels: require('./assets/tensorflow_labels.txt')
     
