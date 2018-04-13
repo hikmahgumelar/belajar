@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import { Component } from 'react';
 import logo from './logo.svg';
 import Frisbee from 'frisbee';
 import './App.css';
@@ -6,7 +6,7 @@ import './App.css';
 
 const api = new Frisbee({
     //  baseURI: 'http://api.jakarta.go.id',
-      baseURI: 'http://wahidganteng.ga/process/api/ca7a091d7a53bb8df780b1bb2d3450cb',
+  baseURI: 'http://api.jakarta.go.id',
       headers: {
             'Accept': 'application/json',
                 'Content-Type': 'application/json',
@@ -21,9 +21,8 @@ makeRequests();
 async function makeRequests() {
 
   try{
-    let res = await api.get('/cek-resi');
+    let res = await api.get('/v1/emergency/ambulance');
 console.log('HASILNYA : ', res.body);
-this.setState({ isi: 'res.body.msg'});
    // for(let i = 0; i < res.body.VEHICLE.DATA.length;i++){
    //
    //    console.log(res.body.VEHICLE.DATA[i].GSM);
@@ -49,8 +48,6 @@ constructor(props){
           <img src={logo} className="App-logo" alt="logo" />
           <h1 className="App-title">Welcome to React</h1>
         </header>
-        <p className="App-intro">
-        {this.state.isi}
         </p>
       </div>
     );

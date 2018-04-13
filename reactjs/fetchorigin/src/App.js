@@ -35,14 +35,14 @@ componentDidMount(){
 ambildata();
 }
   render() {
-  
       return (
       <div className="App">
-        <header className="App-header">
+        <header className="App-header" >
           <img src={logo} className="App-logo" alt="logo" />
           <h1 className="App-title">Welcome to React</h1>
           </header>
         <p className="App-intro">
+        console.log(this)
         {this.state.pesan.map(hasilnya => {
         return ( 
             <div>
