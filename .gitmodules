@@ -1,0 +1,9 @@
+[submodule "face-detection-node-opencv"]
+	path = face-detection-node-opencv
+	url = ./nodejs/face-detection-node-opencv/
+[submodule "tfjs-converter"]
+	path = tfjs-converter
+	url = ./reactjs/tfjs-converter/
+[submodule "whatsthis"]
+	path = whatsthis
+	url = ./reactjs/whatsthis/
