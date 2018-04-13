@@ -1,0 +1,1 @@
+# kumpulan buat saya belajar
